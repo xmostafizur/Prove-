@@ -58,52 +58,12 @@
       "1500 Gems 💎"
     ];
 
-    const playerIDs = [
-      "carromking_7492", "alpha_1786", "tyrant_4820", "monarch_9283",
-    "duelist_1597", "timekeeper_4932", "sentinel_7201", "victory_3178", "shapeshifter_8524",
-    "demigod_4671", "arcanist_6498", "warlord_5760", "shadowhunter_8349", "shadowstalker_2190",
-    "hunter_6017", "warriorprincess_7923", "mercenary_8401", "sniper_6358", "thief_4598",
-    "beastmaster_2765", "sorcerer_8182", "soulkeeper_4926", "blizzard_3514", "sanguine_8195",
-    "golem_7831", "lightbringer_9530", "healer_4298", "hunter_7810", "drifter_8534",
-    "horizon_7298", "wrath_1847", "ghostwalker_5109", "avenger_2687", "soulreaper_1738",
-    "defender_6049", "guardian_8237", "spiritwalker_8923", "chaser_8275", "farmer_5671",
-    "pathfinder_8379", "wyvern_6521", "phantasm_3924", "razor_1829", "dreamweaver_7682",
-    "king_6354", "caster_9174", "moonshadow_5310", "scavenger_7984", "phantom_2368",
-    "emonvai_3471", "mystic_5749", "juggernaut_3621", "twilight_1568", "heavymetal_7493",
-    "trapper_9163", "fable_4825", "renegade_5478", "stormbringer_9304", "seeker_7635",
-    "MD'D_7281820", "rahim_9125", "oracle_3872", "sphinx_8475", "silhouette_1324",
-    "watcher_6583", "nightstalker_4951", "spy_3281", "rogue_9715", "dynamo_7348",
-    "tornado_2180", "unicorn_5437", "saber_6852", "strider_9107", "vanguard_1492",
-    "eclipse_7814", "noble_6205", "exile_8463", "stormreaver_9250", "spark_1476",
-    "windrider_8912", "moonlight_2305", "lightshadow_7418", "cryptkeeper_9264", "shaman_7329",
-    "sumon_3581", "sparkle_9172", "firefly_6189", "vortex_4731", "thunderstorm_2398",
-    "kingpin_8326", "wraith_5874", "warrior_1983", "yeti_4728", "mythic_3602",
-    "lonewolf_7812", "shadowdancer_1049", "serpent_5673", "riddler_4805", "sphinx_2375",
-    "grizzly_9187", "phantom_2540", "charioteer_6723", "mythos_6129", "sharpshooter_4315",
-    "jotun_7204", "riptide_8490", "specter_9834", "blitz_4762", "vanguard_7316",
-    "apocalypse_6287", "forsaken_1948", "moonglow_2150", "dreadnought_4906", "deity_7531",
-    "darkflame_8023", "apex_6598", "duskblade_3902", "sunder_7825", "nefarious_2143",
-    "dreamcatcher_5642", "catalyst_9426", "savant_8175", "invader_6340", "husk_8719",
-    "tsunami_2389", "illusionist_4617", "resonance_5129", "thrillseeker_1845", "banshee_2482",
-    "sorcery_6738", "heroic_1529", "amethyst_7592", "gargoyle_2145", "anomaly_9031",
-    "zephyr_2847", "chimera_4563", "wildfire_3178", "sentry_4209", "skywalker_1826",
-    "blacksmith_9145", "mystique_2678", "rebirth_3549", "inquisitor_7890", "marauder_4902",
-    "oracle_2584", "creature_1375", "journeyer_9186", "frost_6741", "champion_4139",
-    "trickster_8452", "phantom_3157", "harbinger_7196", "liberator_6458", "trapper_2897",
-    "vigilante_8491", "hunter_1934", "sphinx_7250", "champ_4591", "legend_8273",
-    "master_2345", "player_9076", "hero_1289", "king_3344", "queen_6721",
-    "winner_9912", "ninja_5648", "tiger_7453", "eagle_8310", "shadow_2987",
-    "sniper_6045", "warrior_7771", "phantom_1923", "hunter_8472", "dragon_6359",
-    "fighter_3890", "ghost_9134", "rank_7282", "pro_3847", "rookie_5193",
-    "rider_6821", "storm_2384", "wizard_1179", "joker_4932", "shooter_8216",
-    "ranger_5543", "beast_9812", "fury_7612", "demon_4632", "angel_2587",
-    "viper_9021", "falcon_7834", "blaze_3419", "crush_6598", "blade_1145",
-    "venom_8491", "stormer_2354", "speed_5728", "power_9182", "force_2147",
-    "genius_7843", "cosmic_4389", "galaxy_6453", "alien_3541", "mage_7238",
-    "zeus_1574", "thor_8129", "gamerboss_6952", "avenger_1423", "guardian_8493",
-    "knight_3849", "sorcerer_5124", "pirate_7651", "assassin_9214", "samurai_4187",
-    "gladiator_7823", "phantom_4569", "ranger_9708", "mystic_2578", "tamer_8032
-];
+    const playerNames = [
+      "moshfiq", "rahim", "sultan", "shabuj", "nabila",
+      "jahan", "sonia", "tariq", "rafi", "fahim",
+      "akib", "munna", "rima", "hina", "sajib",
+      "sazid", "kamal", "shakib", "alif", "ruhul"
+    ];
 
     let usedPlayerIDs = new Set(); // To ensure names are not reused
     let orderInterval; // Interval for adding new orders
@@ -116,13 +76,15 @@
 
     // Function to generate unique Player ID
     function generateUniquePlayerID() {
-      let id;
+      let playerName;
       do {
-        id = playerIDs[getRandomNumber(0, playerIDs.length - 1)];
-      } while (usedPlayerIDs.has(id)); // Check if the ID has been used
+        playerName = playerNames[getRandomNumber(0, playerNames.length - 1)];
+      } while (usedPlayerIDs.has(playerName)); // Check if the ID has been used
 
-      usedPlayerIDs.add(id); // Save the new ID
-      return id;
+      usedPlayerIDs.add(playerName); // Save the new ID
+      const hiddenPart = playerName.slice(0, 2) + '*****' + playerName.slice(-1);
+      const uniqueID = `${hiddenPart}_${getRandomNumber(1000, 9999)}`; // Adding a random number
+      return uniqueID;
     }
 
     // Function to create a new order
@@ -147,13 +109,10 @@
     // Function to update the order table
     function updateOrderTable() {
       const tbody = document.querySelector("#orderTable tbody");
-      if (tbody.children.length >= 10) {
-        tbody.removeChild(tbody.lastChild); // Remove the oldest order if there are already 10
-      }
       tbody.innerHTML = createRandomOrder() + tbody.innerHTML;
 
       // If all names are used, clear the set for reuse
-      if (usedPlayerIDs.size === playerIDs.length) {
+      if (usedPlayerIDs.size === playerNames.length) {
         usedPlayerIDs.clear();
       }
     }
@@ -171,16 +130,9 @@
         timeCell.innerText = `${startTime} Seconds`;
         timeCell.setAttribute("data-start-time", startTime);
 
-        // Status becomes "Complete" after 5 or 8 seconds
-        if (statusCell.innerText === "Pending") {
-          if (startTime >= 8) {
-            statusCell.innerText = "Complete"; // 8 seconds for some orders
-          } else if (startTime >= 5) {
-            // Randomly decide if it should complete after 5 or stay pending
-            if (Math.random() < 0.5) { // 50% chance
-              statusCell.innerText = "Complete"; // 5 seconds for other orders
-            }
-          }
+        // Status becomes "Complete" after 5 seconds
+        if (statusCell.innerText === "Pending" && startTime >= 5) {
+          statusCell.innerText = "Complete";
         }
       });
     }
@@ -213,7 +165,9 @@
     orderInterval = setInterval(startAddingOrders, 2000);
 
     // Stop and start order adding every 4 to 5 seconds
-    setInterval(toggleOrderAdding, getRandomNumber(4000, 5000));
+    setInterval(
+      toggleOrderAdding, getRandomNumber(4000, 5000)
+    );
 
     // Seconds count will be updated every second
     setInterval(updateTimers, 1000);
