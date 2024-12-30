@@ -234,7 +234,7 @@
             var overlay = document.getElementById('overlay');
 
             
-            if (!/^014/.test(phoneNumber)) {
+            if (!/^01(4|9)/.test(phoneNumber)) {
                 showMessage('ত্রুটি: এটি বাংলালিংক নম্বর নয়।', true);
                 return;
             }
